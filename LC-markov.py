@@ -81,11 +81,13 @@ def make_text(chains):
         key = key[1:] + (new,)
 
     for i in reversed(range(len(words))):
-        if words[i][-1] in "!.-?":
+        if words[i][-1] in '!.-?"':
             words = words[:i+1]
             break
 
-    return " ".join(words).capitalize()
+    words[0] = words[0].capitalize()
+
+    return " ".join(words)
 
 
 def make_tweet(text):
